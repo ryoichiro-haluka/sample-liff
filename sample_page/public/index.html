@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <link rel="stylesheet" href="index.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Potta+One&display=swap" rel="stylesheet">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>鳥人間と遥</title>
+</head>
+<body>
+  <div class="mahjong">
+    <div class="message"></div>
+    <div class="message_2">
+      <span class="message_2_in">ポン・チー・?</span>
+    </div>
+    <div class="button-area">
+        <!-- spanタグにボタンの機能を持たせる -->
+        <span class="button" onClick="sendAnswer()">?に入るのは？</span>
+    </div>
+  </div> 
+
+  <script charset="utf-8" src="https://static.line-scdn.net/liff/edge/2/sdk.js"></script>
+  <script>
+    liff.init({
+      liffId: '1657219655-z0vLGR9b', // Use own liffId
+      withLoginOnExternalBrowser: true, // Enable automatic login process
+    }).then(() => {
+  // Start to use liff's api
+    });
+
+    function sendAnswer() {
+      liff
+      .sendMessages([
+        {
+          type: "text",
+          text: "カン",
+        },
+      ])
+      .then(function () {
+        window.alert('答えを送りました');
+      });
+    }
+  </script>
+
+
+</body>
+</html>
